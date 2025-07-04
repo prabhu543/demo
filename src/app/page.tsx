@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { currentUser } from '@clerk/nextjs/server';
+import Link from 'next/link';
 import React from 'react';
 
 const Home = async () => {
@@ -14,7 +15,9 @@ const Home = async () => {
 	return (
 		<div className='flex flex-col items-center justify-center h-screen'>
 			<h1>Hello world!!</h1>
-			<Button>Dashboard</Button>
+			<Link href='/dashboard'>
+				<Button variant='outline'>Dashboard</Button>
+			</Link>
 		</div>
 	);
 };
