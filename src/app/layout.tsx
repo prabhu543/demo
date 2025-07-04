@@ -23,7 +23,7 @@ export default function RootLayout({
 			<html lang='en'>
 				<body className={`${work_Sans.className}`}>
 					<Navbar />
-					<main>{children}</main>
+					<main className=''>{children}</main>
 				</body>
 			</html>
 		</ClerkProvider>
