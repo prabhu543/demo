@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Work_Sans } from 'next/font/google';
 import './globals.css';
+import { ClerkProvider } from '@clerk/nextjs';
+import Navbar from '@/frontend/Navbar';
 
 const work_Sans = Work_Sans({
 	subsets: ['latin'],
@@ -17,10 +19,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={`${work_Sans.className}`}>
-				<main>{children}</main>
-			</body>
-		</html>
+		<ClerkProvider>
+			<html lang='en'>
+				<body className={`${work_Sans.className}`}>
+					<Navbar />
+					<main>{children}</main>
+				</body>
+			</html>
+		</ClerkProvider>
 	);
 }
