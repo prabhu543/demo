@@ -1,18 +1,15 @@
-// import { PrismaClient } from "@prisma/client";
-
-import { PrismaClient } from '@/generated/prisma';
-
-// import { PrismaClient } from "@prisma/client/edge";
+import { PrismaClient } from '@prisma/client';
 
 declare global {
-	// allow global `var` to be reused
-	var prisma: PrismaClient | undefined;
+  // allow global var reuse in development
+  // (TypeScript safe)
+  var prisma: PrismaClient | undefined;
 }
 
 const prisma = global.prisma ?? new PrismaClient();
 
 if (process.env.NODE_ENV !== 'production') {
-	global.prisma = prisma;
+  global.prisma = prisma;
 }
 
 export default prisma;
