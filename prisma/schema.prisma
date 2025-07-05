@@ -6,19 +6,19 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // User model using Clerk's user.id (string)
 model User {
-  id    String @id
-  email String @unique
-  name  String
+  id        String   @id
+  email     String   @unique
+  name      String
   todos     Todo[]
   createdAt DateTime @default(now())
 }
